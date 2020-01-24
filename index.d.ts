@@ -3,10 +3,12 @@
  *
  * @param {object} converters - a mapping of tag names to a function
  *                              returning the desired mapping.
+ * @param {boolean} [debug] - optional flag to enable additional
+ *                            developer debug information.
  * @public
  */
 declare class XMLToReact {
-  constructor(converters: any);
+  constructor(converters: any, debug?: boolean);
 
   /**
    * Create a XML to React converter.
