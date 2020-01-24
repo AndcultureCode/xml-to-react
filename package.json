@@ -1,5 +1,5 @@
 {
-  "name": "@condenast/xml-to-react",
+  "name": "andculturecode.javascript.xml-to-react",
   "version": "1.0.0",
   "description": "Converts an XML document into a React tree",
   "main": "dist/commonjs/XMLToReact.js",
@@ -18,7 +18,7 @@
     "test": "jest --silent=true",
     "test:watch": "jest --silent=true --watch"
   },
-  "repository": "https://github.com/CondeNast/xml-to-react",
+  "repository": "https://github.com/AndcultureCode/xml-to-react",
   "contributors": [
     "Phil Gold <phil_gold@condenast.com>",
     "Daniel Taveras <daniel_taveras@condenast.com>"

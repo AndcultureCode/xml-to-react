@@ -1,5 +1,12 @@
 # XML-to-React
 
+
+**NOTE**: This fork exists solely for the andculture development team to immediately leverage contributions to the primary XML-to-React repository while waiting for approvals. When all changes are merged and published to NPM, projects should switch back to using the primary @condenaste/xml-to-react repository.
+
+To use this fork, run `npm install andculturecode.javascript.xml-to-react`
+
+---
+
 Converts an XML document into a React tree.
 
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](LICENSE)
