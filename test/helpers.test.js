@@ -132,6 +132,16 @@ describe('helpers', () => {
       expect(console.log).toHaveBeenCalledTimes(1);
     });
 
+    it('should log message if no converter is registered by tagName for nested elements if debug is enabled', () => {
+      jest.spyOn(global.console, 'log');
+      const converters = {
+        div: () => ({ type: 'foo', props: {} }),
+      };
+      const { firstChild } = parseXML('<div><a>hello</a></div>');
+      visitNode(firstChild, 0, converters, null, true);
+      expect(console.log).toHaveBeenCalledTimes(1);
+    });
+
     it('should return `null` if node has no tagName', () => {
       const { firstChild } = parseXML('<!-- comment here -->');
       expect(visitNode(firstChild, 0, {})).toEqual(null);

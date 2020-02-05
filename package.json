@@ -1,6 +1,6 @@
 {
   "name": "andculturecode.javascript.xml-to-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts an XML document into a React tree",
   "main": "dist/commonjs/XMLToReact.js",
   "module": "dist/modules/XMLToReact.js",

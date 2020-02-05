@@ -119,7 +119,7 @@ export function visitNode(node, index, converters, data, debug) {
   const newProps = Object.assign({}, { key: index }, props);
 
   const children = getChildren(node);
-  const visitChildren = (child, childIndex) => visitNode(child, childIndex, converters, data);
+  const visitChildren = (child, childIndex) => visitNode(child, childIndex, converters, data, debug);
   const childElements = children.map(visitChildren);
 
   return createElement(type, newProps, ...childElements);
