@@ -111,6 +111,15 @@ The `XMLToReact` class is instantiated with a map of converters.
 }
 ```
 
+You can also register a default fallback converter by registering it with `'*'` as the key. This
+converter will be used if no explicit converter is registered for the XML node name.
+
+```js
+{
+  '*': defaultConverterFunction
+}
+```
+
 ### `convert( xml, data )`
 
 - `xml` `{string}` - xml node or document
