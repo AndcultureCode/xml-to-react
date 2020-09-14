@@ -185,6 +185,7 @@ describe('helpers', () => {
       expect(element.props).toEqual({
         children: 'hello',
         keys: ['x', 'y'],
+        tagName: 'a',
       });
     });
 
@@ -207,6 +208,7 @@ describe('helpers', () => {
       expect(element.props).toEqual({
         foo: 'bar',
         children: 'hello',
+        tagName: 'a',
       });
       expect(props).toEqual({ foo: 'bar' });
     });
@@ -227,11 +229,19 @@ describe('helpers', () => {
 
       expect(isValidElement(element)).toEqual(true);
       expect(dog.type).toEqual('li');
-      expect(dog.props).toEqual({ action: 'wag', children: 'Rufus' });
+      expect(dog.props).toEqual({
+        action: 'wag',
+        children: 'Rufus',
+        tagName: 'Dog',
+      });
 
       expect(isValidElement(element)).toEqual(true);
       expect(cat.type).toEqual('li');
-      expect(cat.props).toEqual({ action: 'purr', children: 'Billy' });
+      expect(cat.props).toEqual({
+        action: 'purr',
+        children: 'Billy',
+        tagName: 'Cat',
+      });
     });
 
     it('should use default converter if none found for tag name', () => {
@@ -243,6 +253,7 @@ describe('helpers', () => {
 
       expect(isValidElement(element)).toEqual(true);
       expect(element.type).toEqual('div');
+      expect(element.props.tagName).toBe('UnregisteredXmlTag');
     });
   });
 });

@@ -116,7 +116,7 @@ export function visitNode(node, index, converters, data, debug) {
 
   const attributes = getAttributes(node);
   const { type, props } = converter(attributes, data);
-  const newProps = Object.assign({}, { key: index }, props);
+  const newProps = Object.assign({}, { key: index, tagName }, props);
 
   const children = getChildren(node);
   const visitChildren = (child, childIdx) => visitNode(child, childIdx, converters, data, debug);

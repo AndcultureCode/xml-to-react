@@ -21,4 +21,11 @@ declare class XMLToReact {
   public convert(xml: string, data?: any): any;
 }
 
+declare namespace XMLToReact {
+  declare interface XMLToReactComponentProps {
+    key: number,
+    tagName: string;
+  }
+}
+
 export = XMLToReact;
