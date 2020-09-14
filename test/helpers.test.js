@@ -129,6 +129,7 @@ describe('helpers', () => {
       const converters = {};
       const { firstChild } = parseXML('<a>hello</a>');
       visitNode(firstChild, 0, converters, null, true);
+      // eslint-disable-next-line no-console
       expect(console.log).toHaveBeenCalledTimes(1);
     });
 
@@ -139,6 +140,7 @@ describe('helpers', () => {
       };
       const { firstChild } = parseXML('<div><a>hello</a></div>');
       visitNode(firstChild, 0, converters, null, true);
+      // eslint-disable-next-line no-console
       expect(console.log).toHaveBeenCalledTimes(1);
     });
 
@@ -230,6 +232,17 @@ describe('helpers', () => {
       expect(isValidElement(element)).toEqual(true);
       expect(cat.type).toEqual('li');
       expect(cat.props).toEqual({ action: 'purr', children: 'Billy' });
+    });
+
+    it('should use default converter if none found for tag name', () => {
+      const converters = {
+        '*': () => ({ type: 'div', props: {} }),
+      };
+      const { firstChild } = parseXML('<UnregisteredXmlTag>I should be converted using "*" converter</UnregisteredXmlTag>');
+      const element = visitNode(firstChild, 0, converters);
+
+      expect(isValidElement(element)).toEqual(true);
+      expect(element.type).toEqual('div');
     });
   });
 });

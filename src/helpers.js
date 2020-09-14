@@ -104,12 +104,12 @@ export function visitNode(node, index, converters, data, debug) {
     return null;
   }
 
-  const converter = converters[tagName];
+  const converter = converters[tagName] || converters['*'];
 
   if (typeof converter !== 'function') {
     if (debug === true) {
       // eslint-disable-next-line no-console
-      console.log(`No converter found for tagName "${tagName}"`);
+      console.log(`No converter found for tagName "${tagName}" and no default converter specified.`);
     }
     return null;
   }
@@ -119,7 +119,7 @@ export function visitNode(node, index, converters, data, debug) {
   const newProps = Object.assign({}, { key: index }, props);
 
   const children = getChildren(node);
-  const visitChildren = (child, childIndex) => visitNode(child, childIndex, converters, data, debug);
+  const visitChildren = (child, childIdx) => visitNode(child, childIdx, converters, data, debug);
   const childElements = children.map(visitChildren);
 
   return createElement(type, newProps, ...childElements);
